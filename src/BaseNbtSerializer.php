@@ -182,7 +182,7 @@ abstract class BaseNbtSerializer implements NbtStreamReader, NbtStreamWriter{
 		$this->buffer->setOffset($of);
 		
 		$ref = (new \ReflectionClass($this->buffer))->getProperty('buffer');
-		$res->setAccessible(true);
+		$ref->setAccessible(true);
 		var_dump(ord($this->buffer->get(1)), ord($ref->getValue($this->buffer)[0]));
 		$this->buffer->setOffset($of);
 		return $this->buffer->getByte();
