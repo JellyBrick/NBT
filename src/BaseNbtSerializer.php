@@ -178,9 +178,12 @@ abstract class BaseNbtSerializer implements NbtStreamReader, NbtStreamWriter{
 	}
 
 	public function readByte() : int{
+                $bufTest = $this->buffer->getBuffer()[$this->buffer->getOffset()];
+                var_dump($bufTest, \ord($bufTest));
                 var_dump($this->buffer->getBuffer());
+
 		$temp = $this->buffer->getByte();
-                var_dump($this->buffer->getBuffer());
+                var_dump($temp, $this->buffer->getBuffer());
                 return $temp;
 	}
 
